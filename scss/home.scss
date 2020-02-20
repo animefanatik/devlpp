@@ -1,0 +1,491 @@
+@import '_function';
+@import '_main';
+
+.fullWidth {display:block; width: 100%; padding: $secPad 0;}
+.fixWidth {width: 95%; max-width: 1200px; margin: 0px auto;}
+
+
+#head {
+    background: $lbl;
+    padding: 0;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    
+    #navHead {
+        display: grid;
+        grid-template-columns:62px 2fr 250px;
+        column-gap:15px;
+        align-items: center;
+        @include s(md) {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        @include s(sm) {
+            padding-top: 10px;
+            img {
+                width: 40px;
+            }
+        }
+        a {
+            color: $wht;
+            font-family: $font-alt;
+            font-size: rem(20);
+            text-decoration: none;
+            margin-right:15px;
+            @include s(sm) {
+                font-size: rem(16);
+                margin-right:10px;
+            }
+        }
+        a:hover, a:active {
+            text-decoration: underline;
+            color: $lgg;
+        }
+        #navHeadSearch {
+            @include s(md) {
+                margin: 1rem 0;
+            }
+            form {
+                display:grid;
+                grid-template-columns:1fr 1fr;
+                column-gap:0;
+                width: min-content;
+                float: inline-end;
+                input {
+                    border: 0;
+                    line-height: 1.8rem;
+                    border-radius: 25px 0 0 25px;
+                    width: 190px;
+                    padding-left: 15px;
+                    font-family: $font-main;
+                    font-size: rem(16);
+                }
+                button {
+                    display: block;
+                    background: $wht url(../img/lupa.png) center 4px no-repeat;
+                    border: none;
+                    border-radius: 0 25px 25px 0;
+                    width:40px;
+                    height: 2rem;
+                }
+            }
+        }
+    }
+}
+#hero {
+    background: url(/2020/img/leer-tablet-kindle-mobile.jpg) center left no-repeat;
+    background-size: cover;
+    margin-top: 50px;
+    @include s(md) {
+        margin-top: 60px;
+    }
+    .fixWidth {
+        @extend %flex-col;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        #brand {
+            @extend %flex-col;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            max-width: 400px;
+            color: $wht;
+            background: rgba(99, 159, 211, .8);
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+            padding: 10px 20px 0;
+            margin: 10vh 0;
+            border-radius: 15px;
+            h1 {
+                font-family: $font-alt;
+                font-size: rem(45);
+                letter-spacing: 0.020em;
+                margin: 0;
+                @include s(sm) {
+                    font-size: rem(33);                
+                }
+            }
+            .draw {
+                margin: 10px 0;
+                hr {
+                    width: 100%;
+                    height: 1.5px;
+                }
+                h2 {
+                    font-size: rem(14);
+                }
+            }
+            h3 {
+                font-family: $font-main;
+                font-weight: 700;
+                font-size: rem(17);
+                margin: 0;
+                @include s(sm) {
+                    font-size: rem(13.5);                
+                }                
+            }
+            #actions {
+                @extend %flex-row;
+                justify-content: space-evenly;
+                margin: 1.5rem;
+                width: 100%;
+                a {
+                    width: 125px;
+                    font-size: rem(14);
+                    font-weight: 500;
+                    font-family: $font-alt;
+                    letter-spacing: 0.025rem; 
+                    padding: 5px 0;                  
+                }
+            }
+        }
+    }
+}
+#catArea {
+    background: $wht;
+    color: $blk;
+    #categories {
+        h4 {
+            @extend %title1;
+            margin: 0;
+        }
+        ul{
+            @extend %flex-col;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            height: auto;
+            max-height: 400px;
+            @include s(lg) {
+                max-height: 520px;
+            }
+            @include s(md) {
+                max-height: 750px;
+            }
+            @include s(sm) {
+                font-size: 14px;
+                padding: 0;
+                list-style: none;
+            }
+            a {
+                color: $blk;
+                text-decoration: none;
+                line-height: 1.5rem;
+                display: block;
+            }
+            a:hover {
+                text-decoration:underline;
+            }
+        }
+    }
+}
+#ebooks-nuevos {
+    background: $pale;
+    h2 {
+        @extend %title1;
+    }
+    .librosRecientes {
+        margin: 2rem auto 0;
+        width: 95%;
+        @include s(md) {
+            width: 90%;
+        }
+        .new-libro {
+            text-align: center;
+            img {
+                margin: 0 auto;
+            }
+        }
+    }
+}
+#ebooks-promos {
+    .fixWidth {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        @include s(lg) {
+            display: flex;
+            flex-direction: column;
+        }
+        h1 {
+            @extend %title-book; margin: 0;
+        }
+        h4 {
+            @extend %title1;
+            margin-bottom: 2rem;
+            @include s(lg) {
+                margin-bottom: 3rem;
+                text-align: center;
+            }
+        }
+        article {
+            @extend %flex-row;
+            flex-wrap: nowrap;
+            margin-bottom: 2rem;
+            @include s(sm) {
+                display: grid;
+                grid-template-columns: 1fr 65%;
+                column-gap: 1rem;
+            }
+        }
+        img {
+            flex-shrink: 0;
+            margin-right: 1rem;
+            height: 100%;
+            @include s(sm) {
+                width: 100%;
+                height: auto;
+            }
+        }
+        .packsArea {
+             padding-right: 1.5rem;
+             border-right: 1px solid #ddd;
+             @include s(lg) {
+                 border: 0;
+                 padding: 0;
+                 width: 90%;
+                 margin: 0 auto $secPad;
+             }
+             .packSale, .readInfo .meta {
+                @extend %flex-row;
+                justify-content: space-evenly;
+                align-items: center;
+
+                 &>a {
+                    font-size: rem(12);
+                    font-family: $font-alt;
+                    letter-spacing: 0.025rem;  
+                 }
+             }
+             .packInfo {
+                @extend %flex-col;
+                flex-wrap: nowrap;
+                .packSale {
+                    span {
+                        font-family: $font-alt;
+                        font-size: rem(16);
+                        color: $org;
+                    }
+                    a {
+                        @extend .btn-lbl;
+                        width: 75px;                      
+                    }
+                }
+             }
+        }
+        .readsArea {
+            padding-left: 1.5rem;
+            border-left: 1px solid #ddd;
+            @include s(lg) {
+                border: 0;
+                padding: 0;
+                width: 90%;
+                margin: 0 auto;
+            }
+            article {
+                @include s(sm) {
+                    margin-bottom: 3rem;
+                }
+                .readInfo {
+                    h1 {
+                        margin-bottom: .2rem;
+                    }
+                    p {
+                        display: block;
+                        height: 60px;
+                        overflow: hidden;
+                        margin-top: 10px;
+                    }
+                    .meta {
+                        ul, li {
+                            font-size: rem(14);
+                            padding: 0;
+                            list-style: none;
+                        }
+                        &>a {
+                            @extend .btn-lbl;
+                            width: 75px;
+                            font-family: $font-alt;
+                            font-size: rem(12);
+                        }
+                    }
+                }
+            }
+       }
+       .packsArea .btn-org, .readsArea .btn-grn {
+            font-size: rem(14);
+            font-weight: 700;
+            letter-spacing: 0.025rem;
+            width: max-content;
+            padding: 4px 1rem 0;
+            margin: 0 auto;
+            position: relative;
+            bottom: 0;
+       }
+    }
+}
+#ebooks-autores {
+    background: $blk url(/2020/img/autores-escritores.jpg) center 10vh no-repeat;
+    color: $wht;
+   
+    @include s(sm) {
+        background-position: center 20vh;
+    }
+    
+    #autor-head {
+        text-align: center;
+        text-shadow: 2px 2px 2px $blk;
+        width: 100%;
+        max-width: 735px;
+        margin: 0 auto 50vh;
+        @include s(md) {
+            max-width: 385px;
+        }
+        @include s(sm) {
+            max-width: 295px;
+        }
+        h1 {
+            font-family: $font-alt;
+            font-size: rem(42);
+            margin: 5px auto 0;
+            @include s(sm) {
+                font-size: rem(32) ;
+            }
+        }
+        h2 {
+            @include s(sm) {
+                font-size: rem(18) ;
+            }
+        }
+        h3 {
+            font-family: $font-main;
+            font-size: rem(15);
+        }
+    }
+    ul, li {
+        padding:0;
+        list-style: none;
+    }
+    #autor-icons {
+        @extend %flex-row;
+        justify-content: space-evenly;
+        text-shadow: 2px 2px 2px $blk;
+        @include s(sm) {
+            flex-wrap: wrap;
+        }
+        li {
+            font-family: $font-alt;
+            font-size: rem(24);
+            text-align: center;
+            background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1),  rgba(0,0,0,0.0));
+            @include s(lg) {
+                width: 15%;
+                min-width: 100px;
+                font-size: rem(16);
+                margin: 1rem 2rem;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    a {
+        @extend %title2;
+        color: $wht;
+        display: block;
+        margin: 2rem auto 0;
+        text-align: center;
+    }
+}
+#ebooks-gratis{
+    h1 {
+        @extend %title1;
+        text-align: center;
+        margin: 0 0 2rem;
+        font-size: rem(35);
+        @include s(sm) {
+           font-size: rem(26); 
+        }
+    }
+    #patrocinio {
+        display: block;
+        width: 80%;
+        margin: 2rem auto 0;
+        border: 1px solid rgba(255, 153, 0, 0.2);
+        background: rgba(255, 180, 81, 0.2);
+        padding: .75rem 1.5rem;
+        border-radius: 20px;
+        h2 {
+            margin: 0;
+        }
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+#piracy{
+    background: $lgg;
+    h3 {
+        @extend %title1;
+        text-align: center;
+        margin-bottom: 2rem;
+        
+    }
+    i { font-weight: 700;}
+}
+
+#footer {
+    background: $lbl;
+    color: $wht;
+    text-align: center;
+    h3 {
+        font-weight: 700;
+        margin: 0;
+        font-family: $font-alt;
+        font-weight: 500;
+    }
+    p {
+        margin: 0;
+        font-size: rem(14);
+        display: block;
+        width: 80%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    div {
+         margin: 0 0 2rem;
+
+        a {
+            color: $wht;
+            margin: 10px;
+        }
+    }
+
+
+
+}
+
+
+.draw {
+    @extend %flex-row;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    width: 100%;
+    hr {
+        width: 100%;
+        height: 2px;
+        border: none;
+        background: $wht;
+        margin-top: 7px;
+    }
+    h2 {
+        margin: 0 1rem;
+        font-size: rem(20);
+        letter-spacing: 0.025em;
+        flex-shrink: 0;
+    }
+}    
+
