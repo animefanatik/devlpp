@@ -77,7 +77,7 @@
     }
 }
 #hero {
-    background: url(/2020/img/leer-tablet-kindle-mobile.jpg) center left no-repeat;
+    background: url(../img/leer-tablet-kindle-mobile.jpg) center left no-repeat;
     background-size: cover;
     margin-top: 50px;
     @include s(md) {
@@ -193,10 +193,34 @@
         @include s(md) {
             width: 90%;
         }
+        .slick-prev::before, .slick-next::before {
+            font-family: $font-alt;
+            font-size: 2rem;
+            color: $lbl;
+        }
         .new-libro {
             text-align: center;
-            img {
-                margin: 0 auto;
+            .cover {
+                display: block;
+                margin-bottom: 0.5rem;
+                img {
+                    box-shadow: 2px 2px 3px rgba(0,0,0,.5);
+                    margin: 0 auto;
+                }
+            }
+            .title {
+                font-family: $font-alt;
+                font-size: 1rem;
+                text-decoration: none;
+                color: $lbl;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 3rem;
+            }
+            span {
+                font-size: rem(14);
             }
         }
     }
@@ -298,6 +322,9 @@
                         overflow: hidden;
                         margin-top: 10px;
                     }
+                    p:after {
+                        content: '...';
+                    }
                     .meta {
                         ul, li {
                             font-size: rem(14);
@@ -327,7 +354,7 @@
     }
 }
 #ebooks-autores {
-    background: $blk url(/2020/img/autores-escritores.jpg) center 10vh no-repeat;
+    background: $blk url(../img/autores-escritores.jpg) center 10vh no-repeat;
     color: $wht;
    
     @include s(sm) {
